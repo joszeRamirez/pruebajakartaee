@@ -38,9 +38,10 @@ public class ClienteDAO {
 		Query q = es.createQuery(jpql, Cliente.class);
 		return q.getResultList();
 	}
-	
+
+	@SuppressWarnings("unchecked")
 	public List<Cliente> getEspecifics(String dni) {
-		String jpql = "SELECT c FROM Cliente c WHERE c.DNI = "+dni;
+		String jpql = "SELECT c FROM Cliente c WHERE c.DNI = " + dni;
 		Query q = es.createQuery(jpql, Cliente.class);
 		return q.getResultList();
 	}
