@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+<label>Buscar cliente por cédula:</label>
+		<h:inputText id="dni" value="#{clientes.cliente.dni}" />
+		<br />
+		<br />
+		<h:commandButton action="#{clientes.buscar()}" value="Guardar" />
+</h:form>
+<label>Cédula: </label>
+<h:label id="dni" value="#{clientes.cliente.dni}"></h:label>
+<br/>
+<label>Nombre: </label>
+<h:label id="nombre" value="#{clientes.cliente.nombre}"></h:label>
+<br/>
+<label>Dirección: </label>
+<h:label id="dirección" value="#{clientes.cliente.direccion}"></h:label>
+<br/>
+<label>Código Único Eléctrico Nacional: </label>
+<h:label id="dni" value="#{clientes.cliente.codunelna}"></h:label>
+<br/>
+
+<h1>Listado de Deudas del Cliente</h1>
+	<h:dataTable value="#{clientes.listado}" var="cliente">
+		<h:column>
+			<f:facet name="header">Fecha de Revisión</f:facet>
+			#{cliente.fechaRevision}
+		</h:column>
+		<h:column>
+			<f:facet name="header">kW/h</f:facet>
+			#{cliente.consumokw}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Deuda Total</f:facet>
+			#{cliente.deudaPendiente}
+		</h:column>
+		
+	</h:dataTable>
+
+</body> 
+</html>
